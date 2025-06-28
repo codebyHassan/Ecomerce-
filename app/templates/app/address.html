@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %} {% load static %} {% block title %}Buy Now{% endblock title %} {% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <h3>Welcome {{request.user}}</h3>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+            </ul>
+
+
+        </div>
+        <div class="col-sm-9 offset-sm-1">
+            <div class="row">
+                {% for qu in q %}
+                <div class="col-sm-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Address : {{qu.locality}}</h3>
+                            <p>Name: {{qu.name}}</p>
+                            <p>Address 1: {{qu.locality}}</p>
+                            <p>State: {{qu.state}}</p>
+                            <p>City: {{qu.city }}</p>
+                            <p>zip code: {{qu.zipcode}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
